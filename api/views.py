@@ -10,6 +10,8 @@ from rest_framework.permissions import (
     IsAuthenticatedOrReadOnly,
 
 )
+
+from rest_framework.mixins import DestroyModelMixin, UpdateModelMixin, CreateModelMixin
 from rest_framework.generics import (
     CreateAPIView,
     DestroyAPIView,
@@ -44,9 +46,11 @@ class PostDetailAPI(RetrieveUpdateDestroyAPIView):
 
 
 
+
 class PostListAPI(CreateModelMixin, ListAPIView):
     permission_classes = [AllowAny]
     serializer_class   = PostSerializer
+    queryset = Posts.objects.all()
     # lookup_field       = 'pid'
 
     def post(self,request,*args,**kwargs):

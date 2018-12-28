@@ -9,6 +9,6 @@ app_name = 'api'
 
 urlpatterns = [
     # retrive/update/delete APIs
-    path('post-detail/<int:pk>/', views.PostDetail.as_view(),name="post-detail"),
+    path('post-detail/<int:pk>/', views.PostDetailAPI.as_view(),name="post-detail"),
     path('post-list-create/', views.PostListAPI.as_view(),name="post-list"),
 ]
