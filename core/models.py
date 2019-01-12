@@ -10,3 +10,15 @@ class Posts(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_timestamp(self):
+    	time = self.timestamp
+    	time_str = time.strftime("%Y-%m-%d %I:%M:%S %p")
+    	ret = "Created on " + time_str
+    	return ret
+
+    def get_updatestamp(self):
+    	time = self.last_updated
+    	time_str = time.strftime("%Y-%m-%d %I:%M:%S %p")
+    	ret = "Last updated on " + time_str
+    	return ret

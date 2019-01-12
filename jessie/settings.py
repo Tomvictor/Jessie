@@ -25,7 +25,7 @@ SECRET_KEY = 'ejtif_0glb^@=3iwllvja+3p8h39@hggt4h+90c4*dj)5ao3_g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jessie.buildfromzero.com']
+ALLOWED_HOSTS = ['jessie.buildfromzero.com','127.0.0.1:8000','localhost']
 
 
 # Application definition
