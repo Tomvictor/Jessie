@@ -136,6 +136,10 @@ class SignInAPI(APIView):
             context = {
                 "authKey" : token,
                 "userId" : user_id,
+                "username" : user.username,
+                "email"  : user.email,
+                "first_name" : user.first_name,
+                "last_name" : user.last_name,
                 "message" : resp
             }
             # this_serializer = JWTSerializer(data=context)
@@ -157,12 +161,21 @@ class SignInAPI(APIView):
 
 
 
+class ProtectedAPI(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self,*args, **kwargs):
+        data = {
+            "status" : "Success",
+            "detail" : "This is an protected API response"
+        }
+        return Response(data,status = status.HTTP_400_BAD_REQUEST)
+
 class PostDetailAPI(RetrieveUpdateDestroyAPIView):
     queryset = Posts.objects.all()
     permission_classes = [AllowAny]
     serializer_class   = PostSerializer
     lookup_field       = 'pk'
-
 
 
 
