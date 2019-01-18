@@ -11,4 +11,5 @@ urlpatterns = [
     # retrive/update/delete APIs
     path('post-detail/<int:pk>/', views.PostDetailAPI.as_view(),name="post-detail"),
     path('post-list-create/', views.PostListAPI.as_view(),name="post-list"),
+    path('login/', views.SignInAPI.as_view(),name="signin"),
 ]
